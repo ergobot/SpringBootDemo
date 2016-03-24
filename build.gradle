@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'gs-accessing-data-mongodb'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-data-rest")
+    //compile("org.springframework.data:spring-data-commons-core:1.4.1.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    //compile("org.springframework.boot:spring-boot-starter-security")
+    //compile("org.springframework.security.oauth:spring-security-oauth2")
+    //compile("org.springframework.cloud:spring-cloud-security")
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
